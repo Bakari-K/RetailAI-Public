@@ -1,0 +1,40 @@
+{% extends "todo/layout.html" %}
+
+{% block title %}Product List{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold text-center mb-6">Product Inventory</h1>
+<div class="overflow-x-auto">
+  <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+    <thead class="bg-primary text-white">
+      <tr>
+        <th class="py-3 px-4">ID</th>
+        <th class="py-3 px-4">Name</th>
+        <th class="py-3 px-4">SKU</th>
+        <th class="py-3 px-4">Wholesale</th>
+        <th class="py-3 px-4">Retail</th>
+        <th class="py-3 px-4">Qty</th>
+        <th class="py-3 px-4">Supplier</th>
+        <th class="py-3 px-4">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in products %}
+      <tr class="text-center border-b">
+        <td class="py-2 px-4">{{ product.product_id }}</td>
+        <td class="py-2 px-4">{{ product.name }}</td>
+        <td class="py-2 px-4">{{ product.sku }}</td>
+        <td class="py-2 px-4">{{ product.wholesale_price }}</td>
+        <td class="py-2 px-4">{{ product.retail_price }}</td>
+        <td class="py-2 px-4">{{ product.quantity }}</td>
+        <td class="py-2 px-4">{{ product.supplier }}</td>
+        <td class="py-2 px-4 space-x-2">
+          <a href="{% url 'product_update' product.product_id %}" class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded">Update</a>
+          <a href="{% url 'product_delete' product.product_id %}" class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded">Delete</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

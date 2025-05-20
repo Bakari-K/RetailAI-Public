@@ -1,0 +1,14 @@
+{% extends "todo/layout.html" %}
+
+{% block title %}Delete Product{% endblock %}
+
+{% block content %}
+<div class="bg-white p-10 rounded-lg shadow text-center max-w-lg mx-auto">
+  <h1 class="text-xl font-semibold mb-6">Are you sure you want to delete this product?</h1>
+  <form method="POST" class="space-x-4">
+    {% csrf_token %}
+    <button type="submit" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded">Yes</button>
+    <a href="{% url 'product_list' %}" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded">Cancel</a>
+  </form>
+</div>
+{% endblock %}

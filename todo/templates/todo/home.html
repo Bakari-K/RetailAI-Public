@@ -1,0 +1,13 @@
+{% extends "todo/layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="bg-white p-10 rounded-lg shadow text-center">
+  <h1 class="text-4xl font-bold mb-4">Welcome to RetailAI</h1>
+  <p class="text-lg text-gray-600 mb-6">AI-powered product and inventory management for smart retailers.</p>
+  <a href="{% url 'product_create' %}" class="bg-primary text-white px-6 py-3 rounded hover:bg-purple-800 transition">
+    Add a Product
+  </a>
+</div>
+{% endblock %}

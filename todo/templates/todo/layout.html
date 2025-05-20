@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}RetailAI{% endblock %}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#7107a9',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="bg-primary text-white fixed w-full z-10 shadow">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="{% url 'home' %}" class="text-xl font-bold">RetailAI</a>
+      <div class="space-x-4">
+        <a href="{% url 'product_create' %}" class="hover:text-gray-200">Add Product</a>
+        <a href="{% url 'product_list' %}" class="hover:text-gray-200">Show Products</a>
+        <a href="{% url 'ai_analysis' %}" class="hover:text-gray-200">AI Analysis</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content -->
+  <div class="pt-20 px-4 max-w-6xl mx-auto">
+    {% block content %}{% endblock %}
+  </div>
+
+</body>
+</html>
